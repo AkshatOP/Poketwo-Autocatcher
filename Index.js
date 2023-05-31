@@ -1,3 +1,12 @@
+/*
+@Developer: 🔥⃤•AK_ØPᵈᵉᵛ✓#6326
+Name: Poketwo-Autocatcher
+Version: V1
+Description: bot to help users with catching pokemons
+@Supported: poketwo/pokemon
+STAR THIS REPO FOR IT TO WORK
+*/
+
 const Discord = require('discord.js-self');
 const client = new Discord.Client()
 const express = require('express');
