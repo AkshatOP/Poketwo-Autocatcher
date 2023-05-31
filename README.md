@@ -3,6 +3,8 @@
   # Poketwo-AUTOCATCHER
 A second generation **free** and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money on buying autocatchers online.
 
+😄😇 **Star this Repo if you find it useful**
+
 ---
 
 
