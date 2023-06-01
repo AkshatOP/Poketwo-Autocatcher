@@ -1,7 +1,8 @@
 {
-  "ocrSpaceApiKey" = "";
-  "spamChannelID" = "";
-  "logChannelID" = "";
-  "errorChannelID" = "";
-  "TOKEN" = "";
+  "ocrSpaceApiKey" : "";
+  "spamChannelID" : "";
+  "logChannelID" : "";
+  "errorChannelID" : "";
+  "TOKEN" : "";
 }
+//put your variable values inside  " "
