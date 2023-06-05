@@ -52,6 +52,39 @@ After you've entered that in, the autocatcher should start successfully. (if not
 ### Auto-levelling
 To enable auto-levelling, just select the pokemon in that autocatcher ID and let it auto-level
 
+# ERRORS
+This bot uses Free API for predicting pokemon names so it sometimes gives in accurate results like
+Instead of "@poketwo catch Magikarp"  it writes "@poketwo catch Macikarp" 
+
+To fix this I have made a `namefix.json` where you can change the incorrect names with the correct ones
+
+**For example**
+Go to namefix.json and edit it as stated
+```js
+{
+    "APPUN": "APPLIN",
+    "MACIKARP": "MAGIKARP",
+    "put wrong name here with uppercase": "put Correct name here",//edit here and keep all characters UPPERCASE
+    "NIDORAN (F)": "NIDORAN" 
+  }
+```
+like if it's saying Dragapult as Dracapult and rockruff as Rocktuff
+add these line here like this 
+
+```js
+{
+    "APPUN": "APPLIN",
+    "MACIKARP": "MAGIKARP",
+    "ROCKTUFF": "ROCKRUFF",//edit here but in upperCase characters 
+    "DRACAPULT": "DRAGAPULT",//edit here but in upperCase characters 
+    "NIDORAN (F)": "NIDORAN"
+   
+  }
+
+```
+If you want to contribute to the community Please post the json you made after a few weeks of use of this bot here or DM me that json in Discord 🙂 
+
+
 ---
 
 ## **DISCLAIMER**
@@ -64,9 +97,9 @@ Please note that self botting is against Discord's Terms of Service and being di
 
 ## Acknowledgements
 ### Creators
-* 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 
+* 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 [Click to DM](https://discordapp.com/users/503928755341885450)
 
 ### Contributors
-* Again 😐 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 
+* Again 😐 [🔥⃤•AK_ØPᵈᵉᵛ✓#6326](https://discordapp.com/users/503928755341885450) 
 
 ---
