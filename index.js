@@ -13,6 +13,7 @@ const express = require('express');
 const { ocrSpace } = require('ocr-space-api-wrapper');
 
 const config = require('./config.json')
+const json = require('./namefix.json');
 
 //------------------------- KEEP-ALIVE--------------------------------//
 
@@ -25,16 +26,34 @@ app.listen(process.env.PORT || 3000);
 
 //--------------------------------------------------------------//
 
+//-------------------------SOME EXTRA FUNCTIONS----------------------------//
+
+
+function findOutput(input) {
+  if (json.hasOwnProperty(input)) {
+    return json[input];
+  } else {
+    return input;
+  }
+}
+//--------------------------------------------------------------------------//
+
 //-------------------------READY HANDLER+SPAMMER-----------------------//
 
 client.on('ready', () => {
   console.log(`${client.user.username} is ready, Made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326`) 
   
   const channel = client.channels.cache.get(config.spamChannelID) 
-  const interval = setInterval(function() {
-    channel.send("SPAMMing! (Made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326) ")
-  }, 1000);
-
+  
+ function getRandomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function spam() {
+  channel.send("SPAMMing! (Made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326) ")
+  const randomInterval = getRandomInterval(1500, 5000); // Random interval for spam between 1 second and 5 seconds
+  setTimeout(spam, randomInterval);
+}
+spam(); 
 })
 //------------------------------------------------------------//
 
@@ -83,7 +102,10 @@ client.on('message', message => {
             try {
               const res1 = await ocrSpace(url, { apiKey: `${config.ocrSpaceApiKey}`});
               const name1 = res1.ParsedResults[0].ParsedText.split('\r')[0];
-              const name = name1.replace(/Q/g, 'R'); console.log(res1.ParsedResults[0].ParsedText.split('\r')) message.channel.send(`<@716390085896962058> c ${name}`).then(a => { }).catch(error => {
+              const name5 = name1.replace(/Q/g, 'R');
+              const name = findOutput(name5);
+              message.channel.send(`<@716390085896962058> c ${name}`)
+                .then(a => { }).catch(error => {
                 console.error(error);
                 const channel = client.channels.cache.get(config.errorChannelID) 
                 channel.send(error)
