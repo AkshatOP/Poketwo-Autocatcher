@@ -32,6 +32,8 @@ After That enter in the following fields in **Config.json**:
 
 ##### <b>TOKEN</b>:
 Paste in your discord account's user token. You can find instructions on this [here](https://www.youtube.com/watch?v=3W9tAEsK7RM)
+*CAUTION*
+If you are using repl.it and don't want your token to be leaked. Follow this [tutorial](https://www.youtube.com/watch?v=BKlv__1OoGc) to secure your token and apply that fix in line 130 of index.js. 
 
 ##### <b>spamChannelID</b>:
 This will allow the bot to use your preferred channel to spam as well as catch Pokétwo spawns. Make sure you paste this carefully, as If you set it to the wrong channel it will spam and catch there.
@@ -93,6 +95,9 @@ Please note that self botting is against Discord's Terms of Service and being di
 
 ---
 
+## Support Server 
+[Click here to join support server](https://discord.gg/FJD29BV8Np)
+
 ---
 
 ## Acknowledgements
@@ -100,6 +105,7 @@ Please note that self botting is against Discord's Terms of Service and being di
 * 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 [Click to DM](https://discordapp.com/users/503928755341885450)
 
 ### Contributors
-* Again 😐 [🔥⃤•AK_ØPᵈᵉᵛ✓#6326](https://discordapp.com/users/503928755341885450) 
+* 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 
+* bullyhunter (thanks for help in namefix.json)
 
 ---
