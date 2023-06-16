@@ -18,15 +18,21 @@ The bot has the following features:
 - 📜 Support for all Pokémon in poketwo
 - 🏎️ Super fast; the autocatcher can even handle Incense!
 - 🔍 Pokétwo-Resistant - the autocatcher is undetectable due to it's method of catching
+- 🔊 Say command `$say <text>` to trade pokemons/manipulate bot
 
 ### Requirements
 Please note that this autocatcher requires NODEJS installed on your system or in any other platform you are trying to run it onto
 
 ## Invite Poke Name Bot to make the autocatcher run . [Invite Link](https://discord.com/oauth2/authorize?client_id=874910942490677270&permissions=412317379648&scope=applications.commands%20bot)
+## Alternatively You can invite Sierra too![Invite link](https://discord.com/oauth2/authorize?client_id=696161886734909481&permissions=8&scope=bot%20applications.commands)(but i prefer only use pokename only)
 
 #### <b>Running the bot</b>
 To start up the bot for the first time, STAR THIS REPO then clone the repo by this link to your local machine or replit (wherever you wish) [click here](https://github.com/AkshatOP/Poketwo-Autocatcher.git) 
 Once you have done that hit `npm install discord.js-self express ocr-space-api-wrapper` in console.
+
+## **Specific Channel Support**
+If you want to run the bot so that it catches only in specific channels then Head over to LINE 17 of #index.js and fill the array with channel IDs of those channel you want to catch in.
+*Leave it like [ ] if you don't want this feature* 
 
 After That enter in the following fields in **Config.json**:
 
@@ -50,6 +56,8 @@ This is the MOST IMPORTANT part. You have to create an ocrSpace account and put 
 After you've entered that in, the autocatcher should start successfully. (if not, check if you have entered in the right fields)
 
 > Remember to cd into your autocatcher folder as well. If you need any help with something, feel free to open a Github Issue.
+
+> ALL Done you can now start your bot by typing `node index.js` in the console 
 
 ### Auto-levelling
 To enable auto-levelling, just select the pokemon in that autocatcher ID and let it auto-level
