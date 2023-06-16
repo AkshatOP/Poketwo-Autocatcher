@@ -14,6 +14,7 @@ const { ocrSpace } = require('ocr-space-api-wrapper');
 
 const config = require('./config.json')
 const json = require('./namefix.json');
+const allowedChannels = ["CATCH_CHANNEL_ID1","CATCH_CHANNEL_ID2" , "CATCH_CHANNEL_ID3"]; // Add your allowed channel IDs to this array or leave it like [] if you want to it to catch from all channels
 
 //------------------------- KEEP-ALIVE--------------------------------//
 
@@ -92,12 +93,26 @@ client.on('message', message => {
 //----------------------------AUTOCATCHER--------------------------------------//
 
 client.on('message', message => {
-  const Pokebots = ["874910942490677270"]; //pokename
+const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
+   if (allowedChannels.length > 0 && !allowedChannels.includes(message.channel.id)) {
+    return; 
+ }
   if(Pokebots.includes(message.author.id)) {
+     let preferredURL = null; 
     message.embeds.forEach((e) => {
       if (e.image) {
-        if (e.image.url.includes("prediction.png")) {
-          let url = e.image.url;
+        const imageURL = e.image.url;
+        if (imageURL.includes("prediction.png")) {
+          preferredURL = imageURL; 
+        } else if (imageURL.includes("embed.png") && !preferredURL) {
+          preferredURL = imageURL; 
+        }
+      }
+    });
+
+    if (preferredURL) {
+      let url = preferredURL;
+ 
           async function main() {
             try {
               const res1 = await ocrSpace(url, { apiKey: `${config.ocrSpaceApiKey}`});
@@ -123,8 +138,8 @@ client.on('message', message => {
               channel.send(error)
             } }
           main()
-        } }
-    })
+        } 
+    
   }
 })
 client.login(config.TOKEN) 
