@@ -14,7 +14,7 @@ const { ocrSpace } = require('ocr-space-api-wrapper');
 
 const config = require('./config.json')
 const json = require('./namefix.json');
-const allowedChannels = ["CATCH_CHANNEL_ID1","CATCH_CHANNEL_ID2" , "CATCH_CHANNEL_ID3"]; // Add your allowed channel IDs to this array or leave it like [] if you want to it to catch from all channels
+const allowedChannels = []; // Add your allowed channel IDs to this array or leave it like [] if you want to it to catch from all channels
 
 //------------------------- KEEP-ALIVE--------------------------------//
 
@@ -119,6 +119,9 @@ const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
               const name1 = res1.ParsedResults[0].ParsedText.split('\r')[0];
               const name5 = name1.replace(/Q/g, 'R');
               const name = findOutput(name5);
+              const delay = Math.floor(Math.random() * 6 + 5) * 1000;//interval from 5-10seconds
+              console.log("Catching in " + (delay/1000) + "seconds")
+              setTimeout(() => {
               message.channel.send(`<@716390085896962058> c ${name}`)
                 .then(a => { }).catch(error => {
                 console.error(error);
@@ -132,6 +135,7 @@ const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
                 const channel = client.channels.cache.get(config.errorChannelID)
                 channel.send(error)
               })
+                }, delay);
             } catch (error) {
               console.error(error);
               const channel = client.channels.cache.get(config.errorChannelID)
