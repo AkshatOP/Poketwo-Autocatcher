@@ -7,6 +7,11 @@ A second generation **free** and open-source Pokétwo autocatcher, created with 
 
 ---
 
+### Youtube Tutorial
+https://www.youtube.com/watch?v=Qqog9HaNU8Y&t=3s
+
+---
+
 
 ### Features
 The bot has the following features:
