@@ -33,11 +33,14 @@ Please note that this autocatcher requires NODEJS installed on your system or in
 
 #### <b>Running the bot</b>
 To start up the bot for the first time, STAR THIS REPO then clone the repo by this link to your local machine or replit (wherever you wish) [click here](https://github.com/AkshatOP/Poketwo-Autocatcher.git) 
-Once you have done that hit `npm install discord.js-self express ocr-space-api-wrapper` in console.
+Once you have done that hit `npm install discord.js-self express pokehint ocr-space-api-wrapper` in console.
 
 ## **Specific Channel Support**
 If you want to run the bot so that it catches only in specific channels then Head over to LINE 17 of #index.js and fill the array with channel IDs of those channel you want to catch in.
 *Leave it like [ ] if you don't want this feature* 
+
+## **Specific Channel Support**
+If Captcha comes , The bot stops it's catching and goes to a short sleep. You can solve the captcha from any ID and then use the command `$captcha_completed` for the bot to wake up
 
 After That enter in the following fields in **Config.json**:
 
@@ -55,6 +58,9 @@ This will allow the bot to use your preferred channel to log the pokemons caught
 ##### <b>errorChannelID</b>:
 This will allow the bot to use your preferred channel to log the errors of code in a desired channel of yours.
 
+##### <b>OwnerID</b>:
+This will be the user-ID of the account controlling the bot (for using "$say" and "$captcha_completed" command)  
+
 ##### <b>ocrSpaceApiKey</b>:
 This is the MOST IMPORTANT part. You have to create an ocrSpace account and put it's API key. Click [here](https://ocr.space/ocrapi/freekey) to get free API-KEY
 
@@ -67,36 +73,7 @@ After you've entered that in, the autocatcher should start successfully. (if not
 ### Auto-levelling
 To enable auto-levelling, just select the pokemon in that autocatcher ID and let it auto-level
 
-# ERRORS
-This bot uses Free API for predicting pokemon names so it sometimes gives in accurate results like
-Instead of "@poketwo catch Magikarp"  it writes "@poketwo catch Macikarp" 
 
-To fix this I have made a `namefix.json` where you can change the incorrect names with the correct ones
-
-**For example**
-Go to namefix.json and edit it as stated
-```js
-{
-    "APPUN": "APPLIN",
-    "MACIKARP": "MAGIKARP",
-    "put wrong name here with uppercase": "put Correct name here",//edit here and keep all characters UPPERCASE
-    "NIDORAN (F)": "NIDORAN" 
-  }
-```
-like if it's saying Dragapult as Dracapult and rockruff as Rocktuff
-add these line here like this 
-
-```js
-{
-    "APPUN": "APPLIN",
-    "MACIKARP": "MAGIKARP",
-    "ROCKTUFF": "ROCKRUFF",//edit here but in upperCase characters 
-    "DRACAPULT": "DRAGAPULT",//edit here but in upperCase characters 
-    "NIDORAN (F)": "NIDORAN"
-   
-  }
-
-```
 If you want to contribute to the community Please post the json you made after a few weeks of use of this bot here or DM me that json in Discord 🙂 
 
 
@@ -116,9 +93,9 @@ Please note that self botting is against Discord's Terms of Service and being di
 ## Acknowledgements
 ### Creators
 * 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 [Click to DM](https://discordapp.com/users/503928755341885450)
+* akshatop [Click to DM](https://discordapp.com/users/503928755341885450)
 
 ### Contributors
 * 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 
-* bullyhunter (thanks for help in namefix.json)
 
 ---
