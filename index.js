@@ -1,7 +1,7 @@
 /*
 @Developer: 🔥⃤•AK_ØPᵈᵉᵛ✓#6326
 Name: Poketwo-Autocatcher
-Version: V1
+Version: V1.2
 Description: bot to help users with catching pokemons
 @Supported: poketwo/pokemon
 STAR THIS REPO FOR IT TO WORK
@@ -10,11 +10,14 @@ STAR THIS REPO FOR IT TO WORK
 const Discord = require('discord.js-self');
 const client = new Discord.Client()
 const express = require('express');
+const { solveHint, checkRarity } = require("pokehint")
 const { ocrSpace } = require('ocr-space-api-wrapper');
 
 const config = require('./config.json')
 const json = require('./namefix.json');
 const allowedChannels = []; // Add your allowed channel IDs to this array or leave it like [] if you want to it to catch from all channels
+let isSleeping = false;
+
 
 //------------------------- KEEP-ALIVE--------------------------------//
 
@@ -42,7 +45,7 @@ function findOutput(input) {
 //-------------------------READY HANDLER+SPAMMER-----------------------//
 
 client.on('ready', () => {
-  console.log(`${client.user.username} is ready, Made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326`) 
+  console.log(`${client.user.username} is ready, Made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 / akshatop`) 
   
   const channel = client.channels.cache.get(config.spamChannelID) 
   
@@ -62,8 +65,12 @@ spam();
 //-------------------------Anti-Crash-------------------------//
 
 process.on("unhandledRejection", (reason, p) => {
-  console.log(" [antiCrash] :: Unhandled Rejection/Catch");
-  console.log(reason, p);
+  if(reason =="Error: Unable to identify that pokemon."){
+  } else { 
+    console.log(" [antiCrash] :: Unhandled Rejection/Catch");
+    console.log(reason,p);
+    
+   }
 });
 process.on("uncaughtException", (err, origin) => {
   console.log(" [antiCrash] :: Uncaught Exception/Catch");
@@ -80,19 +87,34 @@ process.on("multipleResolves", (type, promise, reason) => {
 
 //------------------------------------------------------------//
 
-//-------------------------SAY COMMAND-----------------------//
-client.on('message', message => {
-  if (message.content.startsWith("$say")) {
-    let say = message.content.split(" ").slice(1).join(" ")
-    message.channel.send(say)
-  }
-})
-
-//------------------------------------------------------------//
-
 //----------------------------AUTOCATCHER--------------------------------------//
 
 client.on('message', message => {
+  if(message.content === "$captcha_completed" && message.author.id === config.OwnerID) {
+    isSleeping = false;
+    message.channel.send("Autocatcher Started!")
+  }
+
+  if(!isSleeping){
+
+    if (message.content.includes("Please tell us") && message.author.id === "716390085896962058"){
+        isSleeping = true;
+        message.channel.send("Autocatcher Stopped , Captcha Detected! Use $captcha_completed once the captcha is solved");
+        setTimeout(async function () {
+            isSleeping = false
+          }, 18000000)//5 hours
+
+
+
+  } else if (message.content.startsWith("$say") && message.author.id == config.OwnerID) {
+
+    let say = message.content.split(" ").slice(1).join(" ")
+    message.channel.send(say)
+
+
+  } else {
+
+
 const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
    if (allowedChannels.length > 0 && !allowedChannels.includes(message.channel.id)) {
     return; 
@@ -120,22 +142,77 @@ const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
               const name5 = name1.replace(/Q/g, 'R');
               const name = findOutput(name5);
               const delay = Math.floor(Math.random() * 6 + 5) * 1000;//interval from 5-10seconds
-              console.log("Catching in " + (delay/1000) + "seconds")
+              console.log("A Pokemon Spawned, Catching in " + (delay/1000) + "seconds")
               setTimeout(() => {
               message.channel.send(`<@716390085896962058> c ${name}`)
+              
                 .then(a => { }).catch(error => {
                 console.error(error);
                 const channel = client.channels.cache.get(config.errorChannelID) 
                 channel.send(error)
               })
-              console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + name) 
-              const channel5 = client.channels.cache.get(config.logChannelID) 
-              channel5.send("[" + message.guild.name + "/#" + message.channel.name + "] " + "**__" + name + "__**"  + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326").then(b => { }).catch(error => {
-                console.error(error);
-                const channel = client.channels.cache.get(config.errorChannelID)
-                channel.send(error)
-              })
+              const filter = (msg) => msg.author.id === "716390085896962058";
+              const collector = new Discord.MessageCollector(message.channel, filter, { max: 1, time: 13000 }); // Collect only one message in 10 seconds
+              
+              collector.on('collect', async (collected) => {
+                
+                
+                if(collected.content.includes("Congratulations")){
+		
+		  function capitalizeFirstLetter(str) {
+ 			 return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+		  }
+                  const name2 = capitalizeFirstLetter(name)
+                  const rareity = await checkRarity(`${name2}`)
+                  const logchannel = client.channels.cache.get(config.logChannelID) 
+                  logchannel.send("[" + collected.guild.name + "/#" + collected.channel.name + "] " + "**__" + name2 + "__** " + "Rarity "+ rareity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326").then(b => { }).catch(error => {
+                      
+                    console.error(error);
+                    const channel = client.channels.cache.get(config.errorChannelID)
+                    channel.send(error)
+                  })
+
+		collector.stop();
+
+
+                } else if(collected.content == "That is the wrong pokémon!"){
+
+
+
+
+                  message.channel.send(`<@716390085896962058> h`)
+
+                  const filter = (msg) => msg.author.id === "716390085896962058";
+                  const collector = new Discord.MessageCollector(message.channel, filter, { max: 1, time: 13000 }); // Collect only one message in 10 seconds
+
+                  collector.on('collect', async (collected)=>{
+                    
+                    if(collected.content.includes("The pokémon is")){
+                    const pokemon = await solveHint(collected)
+                    console.log(`Catching ${pokemon}`)
+                    await message.channel.send(`<@716390085896962058> c ${pokemon}`)
+                    console.log("[" + collected.guild.name + "/#" + collected.channel.name + "] " + pokemon)
+                    const rarity = await checkRarity(`${pokemon}`)
+                    const channel5 = client.channels.cache.get(config.logChannelID) 
+                    channel5.send("[" + collected.guild.name + "/#" + collected.channel.name + "] " + "**__" + pokemon + "__** " + "Rarity "+ rarity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326").then(b => { }).catch(error => {
+                      
+                      console.error(error);
+                      const channel = client.channels.cache.get(config.errorChannelID)
+                      channel.send(error)
+                    })
+                    }
+                  })
+
+                }
+              
+
+               
+              });
+          
+              
                 }, delay);
+
+
             } catch (error) {
               console.error(error);
               const channel = client.channels.cache.get(config.errorChannelID)
@@ -145,5 +222,7 @@ const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
         } 
     
   }
+}
+  }
 })
-client.login(config.TOKEN) 
+client.login(config.TOKEN) //use process.env.token if you are using it in repl.it
