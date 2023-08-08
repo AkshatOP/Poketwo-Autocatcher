@@ -39,9 +39,10 @@ Once you have done that hit `npm install discord.js-self express pokehint ocr-sp
 If you want to run the bot so that it catches only in specific channels then Head over to LINE 17 of #index.js and fill the array with channel IDs of those channel you want to catch in.
 *Leave it like [ ] if you don't want this feature* 
 
-## **Specific Channel Support**
+## **Captcha**
 If Captcha comes , The bot stops it's catching and goes to a short sleep. You can solve the captcha from any ID and then use the command `$captcha_completed` for the bot to wake up
 
+## **Config.json**
 After That enter in the following fields in **Config.json**:
 
 ##### <b>TOKEN</b>:
