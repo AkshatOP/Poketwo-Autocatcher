@@ -137,7 +137,7 @@ const Pokebots = ["696161886734909481","874910942490677270"]; //sierra ,pokename
  
           async function main() {
             try {
-              const res1 = await ocrSpace(url, { apiKey: `${config.ocrSpaceApiKey}`});
+              const res1 = await ocrSpace(url, { apiKey: `${config.ocrSpaceApiKey}`, OCREngine: 2});
               const name1 = res1.ParsedResults[0].ParsedText.split('\r')[0];
               const name5 = name1.replace(/Q/g, 'R');
               const name = findOutput(name5);
