@@ -8,7 +8,7 @@ A second generation **free** and open-source Pokétwo autocatcher, created with 
 ---
 
 ### Youtube Tutorial
-https://www.youtube.com/watch?v=Qqog9HaNU8Y&t=3s
+https://www.youtube.com/watch?v=Qqog9HaNU8Y
 
 ---
 
@@ -20,24 +20,29 @@ The bot has the following features:
 - 📜 Log all the pokemons it catch in your desired channel!
 - 💲 **Completely free** and open-source (you can see the code as it is currently)
 - 💕 **Trustworthy**; this autocatcher is **completely** open-source (meaning you can see the latest code)
-- 📜 Support for all Pokémon in poketwo
+- 📜 Support for all Pokémon in poketwo (GEN9 TOO!!)
 - 🏎️ Super fast; the autocatcher can even handle Incense!
 - 🔍 Pokétwo-Resistant - the autocatcher is undetectable due to it's method of catching
 - 🔊 Say command `$say <text>` to trade pokemons/manipulate bot
+- ✅ Can click any button by using `$click <messageID>`
+- 🌟 Can react to any message by using `$react <messageID>`
 
 ### Requirements
 Please note that this autocatcher requires NODEJS installed on your system or in any other platform you are trying to run it onto
 
 ## Invite Poke Name Bot to make the autocatcher run . [Invite Link](https://discord.com/oauth2/authorize?client_id=874910942490677270&permissions=412317379648&scope=applications.commands%20bot)
-## Alternatively You can invite Sierra too![Invite link](https://discord.com/oauth2/authorize?client_id=696161886734909481&permissions=8&scope=bot%20applications.commands)(but i prefer only use pokename only)
+## Alternatively You can invite Sierra too! [Invite link](https://discord.com/oauth2/authorize?client_id=696161886734909481&permissions=8&scope=bot%20applications.commands)(but i prefer only use pokename only)
 
 #### <b>Running the bot</b>
 To start up the bot for the first time, STAR THIS REPO then clone the repo by this link to your local machine or replit (wherever you wish) [click here](https://github.com/AkshatOP/Poketwo-Autocatcher.git) 
-Once you have done that hit `npm install discord.js-self express pokehint ocr-space-api-wrapper` in console.
+Once you have done that hit `npm install` in console.
 
 ## **Specific Channel Support**
 If you want to run the bot so that it catches only in specific channels then Head over to LINE 17 of #index.js and fill the array with channel IDs of those channel you want to catch in.
 *Leave it like [ ] if you don't want this feature* 
+
+## **Help**
+Use $help command to get info about list of commands bot have in it
 
 ## **Captcha**
 If Captcha comes , The bot stops it's catching and goes to a short sleep. You can solve the captcha from any ID and then use the command `$captcha_completed` for the bot to wake up
@@ -69,7 +74,7 @@ After you've entered that in, the autocatcher should start successfully. (if not
 
 > Remember to cd into your autocatcher folder as well. If you need any help with something, feel free to open a Github Issue.
 
-> ALL Done you can now start your bot by typing `node index.js` in the console 
+> ALL Done you can now start your bot by typing `node index.js` or `node .` in the console 
 
 ### Auto-levelling
 To enable auto-levelling, just select the pokemon in that autocatcher ID and let it auto-level
