@@ -1,0 +1,18 @@
+{
+  "name": "Poketwo-Autocatcher",
+  "version": "1.3.0",
+  "description": "bot to help users with catching pokemons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "akshatop",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js-selfbot-v13": "^2.14.9",
+    "express": "^4.18.2",
+    "ocr-space-api-wrapper": "^2.3.0",
+    "pokehint": "^1.1.7"
+  }
+}
