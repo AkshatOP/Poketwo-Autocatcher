@@ -1,7 +1,7 @@
 /*
 @Developer: 🔥⃤•AK_ØPᵈᵉᵛ✓#6326 / akshatop
 Name: Poketwo-Autocatcher
-Version: V1.3
+Version: V1.3.2
 Description: bot to help users with catching pokemons
 @Supported: poketwo/pokemon
 STAR THIS REPO(https://github.com/AkshatOP/Poketwo-Autocatcher) FOR IT TO WORK
@@ -186,12 +186,17 @@ client.on('messageCreate', async message => {
                 }
 
             } else if (message.content.includes("The pokémon is")) {
+                let rarity;
                 const pokemon = await solveHint(message)
                 console.log(`Catching ${pokemon}`)
                 await message.channel.send(`<@716390085896962058> c ${pokemon}`)
 
                 console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + pokemon)
-                const rarity = await checkRarity(`${pokemon}`)
+                try{
+                 rarity = await checkRarity(`${pokemon}`)
+                } catch {
+                    rarity = "Not Found in Database";
+                }
 
                 const channel6 = client.channels.cache.get(config.logChannelID)
                 channel6.send("[" + message.guild.name + "/#" + message.channel.name + "] " + "**__" + pokemon + "__** " + "Rarity " + rarity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326")
@@ -256,8 +261,14 @@ client.on('messageCreate', async message => {
                                         function capitalizeFirstLetter(str) {
                                             return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
                                         }
+
+                                        let rareity;
                                         const name2 = capitalizeFirstLetter(name)
-                                        const rareity = await checkRarity(`${name2}`)
+                                        try{
+                                        rareity = await checkRarity(`${name2}`)
+                                        } catch {
+                                            rareity = "Not Found in Database"
+                                        }
                                         const logchannel = client.channels.cache.get(config.logChannelID)
                                         logchannel.send("[" + collected.guild.name + "/#" + collected.channel.name + "] " + "**__" + name2 + "__** " + "Rarity " + rareity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326").then(b => {}).catch(error => {
 
