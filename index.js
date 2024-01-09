@@ -188,18 +188,18 @@ client.on('messageCreate', async message => {
             } else if (message.content.includes("The pokémon is")) {
                 let rarity;
                 const pokemon = await solveHint(message)
-                console.log(`Catching ${pokemon}`)
-                await message.channel.send(`<@716390085896962058> c ${pokemon}`)
+                console.log(`Catching ${pokemon[0]}`)
+                await message.channel.send(`<@716390085896962058> c ${pokemon[0]}`)
 
-                console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + pokemon)
+                console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + pokemon[0])
                 try{
-                 rarity = await checkRarity(`${pokemon}`)
+                 rarity = await checkRarity(`${pokemon[0]}`)
                 } catch {
                     rarity = "Not Found in Database";
                 }
 
                 const channel6 = client.channels.cache.get(config.logChannelID)
-                channel6.send("[" + message.guild.name + "/#" + message.channel.name + "] " + "**__" + pokemon + "__** " + "Rarity " + rarity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326")
+                channel6.send("[" + message.guild.name + "/#" + message.channel.name + "] " + "**__" + pokemon[0] + "__** " + "Rarity " + rarity + " made by 🔥⃤•AK_ØPᵈᵉᵛ✓#6326")
 
 
             }
