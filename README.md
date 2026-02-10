@@ -1,4 +1,5 @@
-
+  # ISSUE #21 FIX
+After running `npm install`, run `npm install discord.js-selfbot-v13@latest` then `npm install discord.js-self express pokehint ocr-space-api-wrapper`.
   
   # Poketwo-AUTOCATCHER
 A second generation **free** and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money on buying autocatchers online.
@@ -28,14 +29,14 @@ The bot has the following features:
 - 🌟 Can react to any message by using `$react <messageID>`
 
 ### Requirements
-Please note that this autocatcher requires NODEJS installed on your system or in any other platform you are trying to run it onto
+Please note that this autocatcher requires NODEJS installed on your system or in any other platform you are trying to run it onto. Make sure you have the newest version of nodejs.
 
 ## Invite Poke Name Bot to make the autocatcher run . [Invite Link](https://discord.com/oauth2/authorize?client_id=874910942490677270&permissions=412317379648&scope=applications.commands%20bot)
 ## Alternatively You can invite Sierra too! [Invite link](https://discord.com/oauth2/authorize?client_id=696161886734909481&permissions=8&scope=bot%20applications.commands)(but i prefer only use pokename only)
 
 #### <b>Running the bot</b>
 To start up the bot for the first time, STAR THIS REPO then clone the repo by this link to your local machine or replit (wherever you wish) [click here](https://github.com/AkshatOP/Poketwo-Autocatcher.git) 
-Once you have done that hit `npm install` in console.
+Once you have done that hit `npm install` in console then run `npm install discord.js-selfbot-v13@latest` then `npm install discord.js-self express pokehint ocr-space-api-wrapper`
 
 ## **Specific Channel Support**
 If you want to run the bot so that it catches only in specific channels then Head over to LINE 17 of #index.js and fill the array with channel IDs of those channel you want to catch in.
